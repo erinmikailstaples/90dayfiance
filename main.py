@@ -32,10 +32,10 @@ if __name__ == "__main__":
     for row in data:
         print(row)
     
-# set up context
+# # set up context
 
-def create_user_context():
-    user_key = "usr-" + str(uuid.uuid4())
+# def create_user_context():
+#     user_key = "usr-" + str(uuid.uuid4())
     
 
 
