@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-import uuid
 from supabase import create_client, Client
 from st_supabase_connection import SupabaseConnection
 import altair as alt
@@ -8,8 +7,8 @@ import numpy as np
 import pandas as pd 
 
 # load environment variables + validate SDK Key
-supabase_url = os.getenv("SUPABASE_URL")
-supabase_key = os.getenv("SUPABASE_KEY")
+supabase_url = st.secrets("SUPABASE_URL")
+supabase_key = st.secrets("SUPABASE_KEY")
 Client = create_client(supabase_url, supabase_key)
 
 # Initialize connection.
