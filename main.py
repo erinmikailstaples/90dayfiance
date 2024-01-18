@@ -12,25 +12,23 @@ from supabase import create_client, Client
 load.dotenv()
 supabase_url = os.getenv("SUPABASE_URL")
 supabase_key = os.getenv("SUPABASE_KEY")
+Client = create_client(supabase_url, supabase_key)
 
 # Initialize LaunchDarkly
 
 def init_LD_client(SDK_KEY): 
     client = ldclient.set_config(Config(SDK_KEY))
-    
-# Initialize Supabase client
-supabase: Client create_client(supabase_url, supabase_key)
 
 # get the data
 def fetch_data():
         data = supabase.table("90dayfiance").select("*").execute()
-    return data.data
+        return data.data
 
 # show the data in the python app
-if __name__ == "__main__":
-    data = fetch_data()
-    for row in data:
-        print(row)
+# if __name__ == "__main__":
+#     data = fetch_data()
+#     for row in data:
+#         print(row)
     
 # # set up context
 
