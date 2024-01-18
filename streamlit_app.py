@@ -1,5 +1,4 @@
 import streamlit as st
-from dotenv import load_dotenv
 import os
 import uuid
 from supabase import create_client, Client
@@ -9,7 +8,6 @@ import numpy as np
 import pandas as pd 
 
 # load environment variables + validate SDK Key
-load.dotenv()
 supabase_url = os.getenv("SUPABASE_URL")
 supabase_key = os.getenv("SUPABASE_KEY")
 Client = create_client(supabase_url, supabase_key)
