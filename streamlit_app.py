@@ -12,7 +12,7 @@ supabase_key = st.secrets("SUPABASE_KEY")
 Client = create_client(supabase_url, supabase_key)
 
 # Initialize connection.
-conn = st.connection("supabase",type=SupabaseConnection)
+conn = st.connection('supabase',type='SupabaseConnection')
 
 # SQL query to get the dang data
 query = "SELECT * FROM 90dayfiance"
