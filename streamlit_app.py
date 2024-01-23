@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from supabase import create_client, Client
+from supabase import create_client
 from st_supabase_connection import SupabaseConnection
 import altair as alt
 import numpy as np
