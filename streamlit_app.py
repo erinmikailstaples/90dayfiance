@@ -11,7 +11,7 @@ url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(url, key)
 
-Client = create_client("supabaseurl", "supabasekey")
+# Client = create_client("supabaseurl", "supabasekey")
 
 # Initialize connection.
 # conn = st.connection('supabase',type='SupabaseConnection')
