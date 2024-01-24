@@ -9,6 +9,7 @@ import pandas as pd
 # load environment variables + validate SDK Key
 st.write("supabaseurl:", st.secrets["SUPABASE_URL"])
 st.write("supabasekey:", st.secrets["SUPABASE_KEY"])
+
 Client = create_client("supabaseurl", "supabasekey")
 
 # Initialize connection.
