@@ -7,9 +7,9 @@ import numpy as np
 import pandas as pd 
 
 # load environment variables + validate SDK Key
-supabase_url = st.secrets("SUPABASE_URL")
-supabase_key = st.secrets("SUPABASE_KEY")
-Client = create_client(supabase_url, supabase_key)
+supabaseurl = st.secrets("SUPABASE_URL")
+supabasekey = st.secrets("SUPABASE_KEY")
+Client = create_client(supabaseurl, supabasekey)
 
 # Initialize connection.
 conn = st.connection('supabase',type='SupabaseConnection')
