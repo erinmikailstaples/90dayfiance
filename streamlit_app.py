@@ -11,16 +11,16 @@ url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(url, key)
 
-# Client = create_client("supabaseurl", "supabasekey")
-
-# Initialize connection.
-# conn = st.connection('supabase',type='SupabaseConnection')
-
-# SQL query to get the dang data
+#query to get the dang data
 response = supabase.table('90dayfiance').select('partnera').execute()
 
-# # Load this dang data into a dataframe
+data = supabase.table("90dayfiance").select("*").execute
 
-# df = pd.read_sql(query, conn)
+df = pd.DataFrame(data.data)
 
-# print(df.head)
+chart = alt.Chart(df).mark_bar().encode(
+    x='partnera',
+    y='partnerb'
+)
+
+st.altair_chart(chart, use_container_width=True)
