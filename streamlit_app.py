@@ -1,25 +1,26 @@
 import streamlit as st
 import os
-from supabase import create_client
+from supabase import create_client, Client
 from st_supabase_connection import SupabaseConnection
 import altair as alt
 import numpy as np
 import pandas as pd 
 
 # load environment variables + validate SDK Key
-st.write("supabaseurl:", st.secrets["SUPABASE_URL"])
-st.write("supabasekey:", st.secrets["SUPABASE_KEY"])
+url: str = os.environ.get("SUPABASE_URL")
+key: str = os.environ.get("SUPABASE_KEY")
+supabase: Client = create_client(url, key)
 
 Client = create_client("supabaseurl", "supabasekey")
 
 # Initialize connection.
-conn = st.connection('supabase',type='SupabaseConnection')
+# conn = st.connection('supabase',type='SupabaseConnection')
 
 # SQL query to get the dang data
-query = "SELECT * FROM 90dayfiance"
+response = supabase.table('90dayfiance').select('partnera').execute()
 
-# Load this dang data into a dataframe
+# # Load this dang data into a dataframe
 
-df = pd.read_sql(query, conn)
+# df = pd.read_sql(query, conn)
 
-print(df.head)
+# print(df.head)
